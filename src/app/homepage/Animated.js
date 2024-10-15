@@ -11,9 +11,9 @@ const waveAnimation1 = keyframes`
 `;
 
 const waveAnimation2 = keyframes`
-  0% { d: path('M150,0 Q200,150 300,250 T800,450'); }
-  50% { d: path('M150,0 Q250,150 300,250 T900,450'); } 
-  100% { d: path('M150,0 Q200,150 300,250 T860,450'); }
+  0% { d: path('M150,0 Q200,150 300,250 T800,450L800,0Z'); }
+  50% { d: path('M150,0 Q250,150 300,250 T900,450L900,0Z'); } 
+  100% { d: path('M150,0 Q200,150 300,250 T860,450L860,0Z'); }
 `;
 
 const BackgroundWrapper = styled.div`
@@ -41,19 +41,22 @@ const AnimatedLine1 = styled.path`
 const AnimatedLine2 = styled.path`
   stroke: #BAA089;
   stroke-width: 2;
-  fill: none;
+  fill: #BAA089; /* Fill color added here */
   animation: ${waveAnimation2} 6s ease-in-out infinite;
 `;
+
 
 const AnimatedBackground = () => {
   return (
     <BackgroundWrapper>
       <SvgContainer viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
         <AnimatedLine1 d="M200,0 Q250,150 200,300 T200,400" />
-        <AnimatedLine2 d="M150,0 Q200,150 300,300 T400,550" />
+        <AnimatedLine2 d="M150,0 Q200,150 300,250 T800,450L800,600L150,600Z" />
       </SvgContainer>
     </BackgroundWrapper>
   );
 };
 
 export default AnimatedBackground;
+
+
