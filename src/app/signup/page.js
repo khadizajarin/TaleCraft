@@ -1,5 +1,5 @@
 "use client"
-import background from "@/assets/Blog-Site-01.png";
+import background from "@/assets/image.png";
 import { Almarai } from 'next/font/google'; // Import the font
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FaFacebookF , FaGoogle} from "react-icons/fa6";
@@ -12,27 +12,20 @@ const almarai = Almarai({
 
 const page = () => {
     return (
-        <div className={`${almarai.className} h-screen w-screen `}>
+        <div className={`${almarai.className} h-screen w-screen`}>
         <div
           className="bg-no-repeat bg-cover bg-center h-full w-full flex justify-center items-center"
           style={{ backgroundImage: `url(${background.src})` }}
         >
            <div className={`${almarai.className}  `}>
-            <div className="w-[60rem] h-[30rem] flex">
+            <div className="w-[61rem] h-[32rem] flex">
   
               {/* Login form */}
-              <div className="bg-secondary w-[60rem] h-[30rem] flex flex-col justify-center items-center">
+              <div className="bg-secondary w-[61rem] h-[32rem] flex flex-col ">
                 
-                <div className="text-primary flex gap-6  items-center mb-4">
-                  <div>
-                    <h1 className="text-2xl font-semibold text-left">REGISTRATION</h1>
+                <div className="text-primary flex flex-col justify-start mb-6 lg:pt-16 lg:pl-[3.3rem]">
+                    <h1 className="text-2xl font-semibold ">REGISTRATION</h1>
                     <hr className="border-t-2 border-primary w-[15rem]"></hr>
-                  </div>
-                  
-                  <div className="flex gap-4 mb-4">
-                    <button className="bg-primary text-secondary flex items-center justify-center text-xl w-10 h-10"><FaFacebookF /></button>
-                    <button className="bg-primary text-secondary flex items-center justify-center text-xl w-10 h-10"><FaGoogle /></button>
-                  </div>
                 </div>
                 
                  <Formik
@@ -56,11 +49,11 @@ const page = () => {
                       }}
                     >
                     {({ isSubmitting }) => (
-                    <Form>
+                    <Form className="flex flex-col justify-center items-center">
 
                        {/* name */}
-                       <div className="mb-4">
-                        <label className="block text-primary mb-2" htmlFor="email">
+                      <div className="mb-4">
+                        <label className="block text-primary mb-1 text-sm" htmlFor="email">
                           Name
                         </label>
                         <Field
@@ -73,8 +66,8 @@ const page = () => {
                       </div>
   
                       {/* email */}
-                        <div className="mb-4">
-                        <label className="block text-primary mb-2" htmlFor="email">
+                      <div className="mb-4">
+                        <label className="block text-primary mb-1 text-sm" htmlFor="email">
                           Email
                         </label>
                         <Field
@@ -87,8 +80,8 @@ const page = () => {
                       </div>
   
                       {/* password */}
-                      <div className="mb-4">
-                        <label className="block text-primary mb-2" htmlFor="password">
+                      <div className="mb-8">
+                        <label className="block text-primary mb-1 text-sm" htmlFor="password">
                           Password
                         </label>
                         <Field
@@ -110,16 +103,17 @@ const page = () => {
                           Sign Up
                         </button>
                       </div>
-                            </Form>
-                            )}
+                    </Form>
+                    )}
                     </Formik>
-                <p className="text-center text-primary mt-4">Already have an account? <a className="" href="/">SIGN IN</a></p>
+                <p className="text-center text-primary mt-4 text-sm tracking-wider">Already have an account? <a className="" href="/">SIGN IN</a></p>
               </div>
   
               {/* Title */}
-              <div className="bg-primary w-[60rem] h-[30rem] flex flex-col items-end justify-end text-right pr-16 pb-16">
+              <div className="bg-primary w-[61rem] h-[32rem] flex flex-col items-end justify-end text-right lg:pr-16 lg:pb-16">
                 <h1 className="text-secondary text-4xl font-bold">Create</h1>
-                <h3 className="text-secondary text-2xl font-bold">New Account</h3>
+                <h3 className="text-secondary text-2xl font-bold">New</h3>
+                <h3 className="text-secondary text-2xl font-bold">Account</h3>
               </div>
             </div>
            </div>

@@ -1,5 +1,5 @@
 "use client"
-import background from "@/assets/Blog-Site-01.png";
+import background from "@/assets/image.png";
 import { Almarai } from 'next/font/google'; // Import the font
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FaFacebookF , FaGoogle} from "react-icons/fa6";
@@ -20,18 +20,18 @@ export default function Home() {
         style={{ backgroundImage: `url(${background.src})` }}
       >
          <div className={`${almarai.className}  `}>
-          <div className="w-[60rem] h-[30rem] flex">
+          <div className="w-[59rem] h-[28rem] flex">
 
             {/* Login form */}
-            <div className="bg-secondary w-[60rem] h-[30rem] flex flex-col justify-center items-center">
+            <div className="bg-secondary w-[59rem] h-[28rem] flex flex-col justify-center items-center">
               
-              <div className="text-primary flex gap-6  items-center mb-4">
+              <div className="text-primary flex gap-6 justify-center items-center mb-4">
                 <div>
-                  <h1 className="text-2xl font-semibold text-left">LOGIN</h1>
+                  <h1 className="text-xl font-semibold text-left">LOGIN</h1>
                   <hr className="border-t-2 border-primary w-[15rem]"></hr>
                 </div>
                 
-                <div className="flex gap-4 mb-4">
+                <div className="flex justify-center items-center gap-4 mb-4">
                   <button className="bg-primary text-secondary flex items-center justify-center text-xl w-10 h-10"><FaFacebookF /></button>
                   <button className="bg-primary text-secondary flex items-center justify-center text-xl w-10 h-10"><FaGoogle /></button>
                 </div>
@@ -62,7 +62,7 @@ export default function Home() {
 
                     {/* email */}
                       <div className="mb-4">
-                      <label className="block text-primary mb-2" htmlFor="email">
+                      <label className="block text-primary mb-1 text-sm" htmlFor="email">
                         Email
                       </label>
                       <Field
@@ -76,7 +76,7 @@ export default function Home() {
 
                     {/* password */}
                       <div className="mb-4">
-                        <label className="block text-primary mb-2" htmlFor="password">
+                        <label className="block text-primary mb-1 text-sm" htmlFor="password">
                           Password
                         </label>
                         <Field
@@ -91,8 +91,8 @@ export default function Home() {
 
                     {/* check box */}
                       <div className="flex justify-start items-center mb-8">
-                          <Field className="mr-2 checkbox-primary checkbox-sm checkbox" type="checkbox" name="toggle"  id="remember" />
-                          <label className="text-primary" htmlFor="remember">Remember me </label>
+                          <Field className="mr-2 checkbox-primary checkbox-xs rounded-none checkbox" type="checkbox" name="toggle"  id="remember" />
+                          <label className="text-primary text-sm" htmlFor="remember">Remember me </label>
                       </div>
                     
                     {/* submit button */}
@@ -107,11 +107,11 @@ export default function Home() {
                   </Form>
                     )}
                 </Formik>
-              <p className="text-center text-primary mt-4">Did not have a account yet? <a className="" href="/signup">Create new account</a></p>
+              <p className="text-center text-primary mt-4 text-sm tracking-wide">Didn&apos;t have a account yet? <a className="" href="/signup">CREATE NEW ACCOUNT</a></p>
             </div>
 
             {/* Title */}
-            <div className="bg-primary w-[60rem] h-[30rem] flex flex-col items-end justify-end text-right pr-16 pb-16">
+            <div className="bg-primary w-[59rem] h-[28rem] flex flex-col items-end justify-end text-right pr-16 pb-16">
               <h1 className="text-secondary text-4xl font-bold">TaleCraft</h1>
               <h3 className="text-secondary text-2xl font-bold">Where Pens Converge</h3>
             </div>
