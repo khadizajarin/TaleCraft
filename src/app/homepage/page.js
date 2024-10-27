@@ -1,7 +1,8 @@
 "use client"
 import background from "@/assets/image.png";
 import { Almarai } from 'next/font/google'; // Import the font
-import AnimatedBackground from "./Animated";
+import Navbar from "./Navbar";
+// import PrivateRoute from "../components/PrivateRoute";
 
 
 // Initialize the font
@@ -11,19 +12,25 @@ const almarai = Almarai({
 });
 
 
+
+
+
 const page = () => {
     return (
-        <div className={`${almarai.className} h-screen w-screen `}>
-      <div
-        className="bg-no-repeat bg-cover bg-center h-full w-full flex justify-center items-center"
-        style={{ backgroundImage: `url()` }}
-      >
-        <AnimatedBackground></AnimatedBackground>
 
-
-      </div>
-            
+      // <PrivateRoute>
+        <div className={`${almarai.className} h-screen relative bg-no-repeat bg-cover bg-center `}  style={{ backgroundImage: `url(${background.src})` }}>
+        <div className="max-w-5xl mx-auto ">
+          <Navbar className='absolute'></Navbar>
         </div>
+                      
+          
+
+
+        
+        </div>
+      // </PrivateRoute>
+        
     );
 };
 
