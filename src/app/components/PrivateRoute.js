@@ -2,7 +2,7 @@
 "use client"
 import { useContext, useEffect } from "react";
 import { useRouter } from 'next/navigation'
-import { AuthContext } from "../../../firebase/AuthProvider";
+import { AuthContext } from "../../lib/AuthProvider";
 
 
 

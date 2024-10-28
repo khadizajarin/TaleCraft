@@ -6,7 +6,7 @@ import { FaFacebookF, FaGoogle } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from 'next/navigation'
-import { AuthContext } from "../../firebase/AuthProvider";
+import { AuthContext } from "../lib/AuthProvider";
 
 
 // Initialize the font

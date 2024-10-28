@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Almarai } from 'next/font/google'; 
 import Swal from "sweetalert2";
 import { useRouter } from 'next/navigation'
-import { AuthContext } from "../../../firebase/AuthProvider";
+import { AuthContext } from "../../lib/AuthProvider";
 
 // Initialize the font
 const almarai = Almarai({

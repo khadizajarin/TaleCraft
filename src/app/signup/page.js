@@ -7,7 +7,7 @@ import { auth,firebaseConfig } from '@ampproject/firebase/firebase.config';
 import { useRouter } from 'next/navigation'
 import { useContext } from "react";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../../firebase/AuthProvider";
+import { AuthContext } from "../../lib/AuthProvider";
 
 const almarai = Almarai({
   subsets: ['arabic'],
