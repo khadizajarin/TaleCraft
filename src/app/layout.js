@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import AuthProvider from "@/firebase/AuthProvider";
+import AuthProvider from "../../firebase/AuthProvider";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

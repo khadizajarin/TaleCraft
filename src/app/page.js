@@ -5,8 +5,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FaFacebookF, FaGoogle } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
-import { useRouter } from "next/compat/router"; 
-import { AuthContext } from "@/firebase/AuthProvider";
+import { useRouter } from 'next/navigation'
+import { AuthContext } from "../../firebase/AuthProvider";
+
 
 // Initialize the font
 const almarai = Almarai({
@@ -30,21 +31,32 @@ export default function Home() {
 
 
     signIn(values.email, values.password)
-      .then(result => {
-        // console.log(result.user);
-        // Use router.push to navigate
-        router.push(router.query.from || "/homepage");
-      })
-      .catch(error => {
-        console.error(error);
-        Swal.fire({
-          title: 'Error!',
-          text: 'Invalid email or password!',
-          icon: 'error',
-          confirmButtonText: 'Ok'
-        });
-      })
-      .finally(() => setSubmitting(false));
+    .then(result => {
+      router.push( "/homepage");
+      Swal.fire({
+        title: 'Good!',
+        text: 'Successfully logged in!',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      let errorMessage = 'An error occurred. Please try again.';
+      if (error.code === 'auth/invalid-credential') {
+        errorMessage = 'Invalid email or password!';
+      } else if (error.code === 'auth/user-not-found') {
+        errorMessage = 'User not found. Please sign up.';
+      }
+      Swal.fire({
+        title: 'Error!',
+        text: errorMessage,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      });
+    })
+    .finally(() => setSubmitting(false));
+
   };
 
   if (!isClient) return null;

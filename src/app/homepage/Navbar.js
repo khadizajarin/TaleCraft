@@ -1,7 +1,10 @@
 "use client"
+import { useContext } from "react";
 import Image from 'next/image';
 import { Almarai } from 'next/font/google'; 
-
+import Swal from "sweetalert2";
+import { useRouter } from 'next/navigation'
+import { AuthContext } from "../../../firebase/AuthProvider";
 
 // Initialize the font
 const almarai = Almarai({
@@ -12,6 +15,25 @@ const almarai = Almarai({
 
 
 const Navbar = () => {
+
+    const router = useRouter();
+
+    const  {user, logOut} = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+        .then( () => {
+            router.push( "/");
+            Swal.fire(
+                'Logged Out!',
+                'You are logged out successfully!',
+                'success'
+              )
+        })
+        .catch( error => {
+            console.error(error);
+        })
+    }
+
     return (
         <div className="navbar bg-secondary bg-opacity-30">
         <div className="flex-1">
@@ -39,7 +61,7 @@ const Navbar = () => {
                 </a>
                 </li>
                 <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
+                <li onClick={handleLogOut}><a>Logout</a></li>
             </ul>
             </div>
         </div>

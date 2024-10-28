@@ -2,12 +2,12 @@
 import background from "@/assets/image.png";
 import { Almarai } from 'next/font/google';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { AuthContext } from "@/firebase/AuthProvider";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth,firebaseConfig } from '@/firebase/firebase.config.js';
+import { auth,firebaseConfig } from '@ampproject/firebase/firebase.config';
+import { useRouter } from 'next/navigation'
 import { useContext } from "react";
 import Swal from "sweetalert2";
-// import { useRouter } from 'next/router';
+import { AuthContext } from "../../../firebase/AuthProvider";
 
 const almarai = Almarai({
   subsets: ['arabic'],
@@ -17,23 +17,20 @@ const almarai = Almarai({
 const Page = () => {
 
   const { createUser } = useContext(AuthContext); 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  // const router = useRouter();
-
+  const router = useRouter();
 
   const handleSignup = async (values, { setSubmitting }) => {
     console.log("forms value",values.email,values.password)
 
     createUser(values.email, values.password)
         .then(result => {
-            // navigate(locationState? locationState : '/homepage')
-            // alert(
-            //     'Good job!',
-            //     'Allah tumi sign up kore felso!',
-            //     'success'
-            //   )
+          router.push( "/homepage");
             Swal.fire({
               title: "Allah tumi sign up kore felso!",
+              title: 'Good!',
+              text: 'Successfully logged in!',
+              icon: 'success',
+              confirmButtonText: 'Ok',
               showClass: {
                 popup: `
                   animate__animated
