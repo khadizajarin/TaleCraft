@@ -1,17 +1,21 @@
-import mongoose from "mongoose";
+// databaseConnection/config/database.js
+import mongoose from 'mongoose';
 
 const connectDB = async () => {
-    if(mongoose.connections[0].readyState){
-        return true;
-    }
+  if (mongoose.connections[0].readyState) {
+    return;
+  }
 
-    try {
-        await mongoose.connect(process.env.MONGODB_URI);
-        console.log("Mongoose connect hoise reeeehh")
-        return true;
-    } catch (error){
-        console.log(error)
-    }
-}
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('MongoDB connected successfully');
+  } catch (error) {
+    console.error('MongoDB connection failed:', error.message);
+    process.exit(1);
+  }
+};
 
 export default connectDB;

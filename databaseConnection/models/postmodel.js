@@ -1,12 +1,17 @@
-import {Schema, model, models} from 'mongoose'
+// databaseConnection/models/postModel.js
+import mongoose from 'mongoose';
 
-const postSchema = new Schema ({
-    msg: {
-        type: String,
-        required : true,
-    }
-}, {timestamps: true})
+const postSchema = new mongoose.Schema({
+  postText: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-const PostModel = models.posts || model('posts', postSchema)
+const PostModel = mongoose.models.Post || mongoose.model('Post', postSchema);
 
 export default PostModel;
