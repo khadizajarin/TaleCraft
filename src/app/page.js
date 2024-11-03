@@ -8,6 +8,8 @@ import { useContext, useEffect, useState } from "react";
 import { useRouter } from 'next/navigation'
 import { AuthContext } from "../lib/AuthProvider";
 
+// import { getPosts } from "../../_actions/postAction";
+
 
 // Initialize the font
 const almarai = Almarai({
@@ -16,6 +18,8 @@ const almarai = Almarai({
 });
 
 export default function Home() {
+
+
   const { signIn } = useContext(AuthContext); 
   const router = useRouter(); // Initialize router
   const [isClient, setIsClient] = useState(false);
