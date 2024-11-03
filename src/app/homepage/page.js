@@ -37,10 +37,8 @@ const Page = () => {
                 console.log("dataaaaaaaa", res)
               setPosts(res); // Assuming res is the array of posts
             }
-            setLoading(false);
           } catch (error) {
             console.error("Error fetching posts:", error);
-            setLoading(false);
           }
         };
     
@@ -53,6 +51,21 @@ const Page = () => {
                 <div className="max-w-5xl mx-auto">
                     <Navbar className="absolute" />
                 </div>
+
+                <div className="mt-20 p-4 max-w-5xl mx-auto">
+                {posts.length > 0 ? (
+                    posts.map((post, index) => (
+                    <div key={index} className="bg-glass p-4 rounded-lg shadow-md mb-4">
+                        <h2 className="text-2xl font-bold">{post.postText}</h2>
+                        {/* <p>{post.content}</p> */}
+                    </div>
+                    ))
+                ) : (
+                    <p>No posts available.</p>
+                )
+                }
+            </div>
+                
             </div>
         </PrivateRoute>
     );
