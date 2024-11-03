@@ -4,7 +4,6 @@ import background from "@/assets/image.png";
 import { Almarai } from 'next/font/google';
 import Navbar from "./Navbar";
 import PrivateRoute from "../components/PrivateRoute";
-import { getPosts } from "../../../databaseConnection/_actions/postAction";
 
 const almarai = Almarai({
   subsets: ['arabic'],
@@ -21,11 +20,12 @@ const Page = () => {
 
     const fetchPosts = async () => {
       try {
-        const res = await getPosts();
-        if (res.errMsg) {
-          console.error("Error fetching posts:", res.errMsg);
+        const res = await fetch('/api/posts');
+        const data = await res.json();
+        if (res.ok) {
+          setPosts(data);
         } else {
-          setPosts(res); // Assuming res is the array of posts
+          console.error("Error fetching posts:", data.error);
         }
         setLoading(false);
       } catch (error) {
@@ -51,7 +51,6 @@ const Page = () => {
               posts.map((post, index) => (
                 <div key={index} className="bg-glass p-4 rounded-lg shadow-md mb-4">
                   <h2 className="text-2xl font-bold">{post.postText}</h2>
-                  {/* <p>{post.content}</p> */}
                 </div>
               ))
             ) : (

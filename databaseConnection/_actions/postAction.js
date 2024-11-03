@@ -1,16 +1,22 @@
 'use server'
 
+
 import PostModel from "../models/postmodel"
 import connectDB from "../config/database"
 
-export async function getPosts(){
-    try {
-        await connectDB();
-        const data = await PostModel.find();
-        console.log(data)
 
-        return data; 
+export default async function getPosts(req, res) {
+  await connectDB();
+
+  if (req.method === 'GET') {
+    try {
+      const posts = await PostModel.find();
+      res.status(200).json(posts);
+      return posts;
     } catch (error) {
-        return {errMsg : error.message}
+      res.status(500).json({ error: 'Failed to fetch posts' });
     }
+  } else {
+    res.status(405).json({ error: 'Method not allowed' });
+  }
 }
