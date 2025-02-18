@@ -1,55 +1,51 @@
 "use client";
-import background from "@/assets/image.png";
-import { Almarai } from 'next/font/google';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import { useRouter } from 'next/navigation'
+import background from "@/assets/image.png";
+import { Almarai } from "next/font/google";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../lib/AuthProvider";
 
 const almarai = Almarai({
-  subsets: ['arabic'],
-  weight: ['300', '400', '700', '800']
+  subsets: ["arabic"],
+  weight: ["300", "400", "700", "800"],
 });
 
 const Page = () => {
-
-  const { createUser } = useContext(AuthContext); 
+  const { createUser } = useContext(AuthContext);
   const router = useRouter();
 
   const handleSignup = async (values, { setSubmitting }) => {
-    console.log("forms value",values.email,values.password)
+    console.log("Form values:", values.email, values.password);
 
     createUser(values.email, values.password)
-        .then(result => {
-          router.push( "/homepage");
-            Swal.fire({
-              title: "Allah tumi sign up kore felso!",
-              title: 'Good!',
-              text: 'Successfully logged in!',
-              icon: 'success',
-              confirmButtonText: 'Ok',
-              showClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeInUp
-                  animate__faster
-                `
-              },
-              hideClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeOutDown
-                  animate__faster
-                `
-              }
-            });
-        })
-        .catch(error => {
-            console.error(error); 
-        
-        })
+      .then(() => {
+        router.push("/homepage");
+        Swal.fire({
+          title: "Good!",
+          text: "Successfully signed up!",
+          icon: "success",
+          confirmButtonText: "Ok",
+          showClass: {
+            popup: "animate__animated animate__fadeInUp animate__faster",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutDown animate__faster",
+          },
+        });
+      })
+      .catch((error) => {
+        console.error("Signup error:", error);
+        Swal.fire({
+          title: "Error",
+          text: error.message,
+          icon: "error",
+          confirmButtonText: "Try Again",
+        });
+      })
+      .finally(() => setSubmitting(false));
   };
 
   return (
@@ -60,25 +56,25 @@ const Page = () => {
       >
         <div className={`${almarai.className}`}>
           <div className="w-[61rem] h-[32rem] flex">
-
             {/* Sign-up form */}
             <div className="bg-secondary w-[61rem] h-[32rem] flex flex-col">
-
               <div className="text-primary flex flex-col justify-start mb-6 lg:pt-16 lg:pl-[3.3rem]">
                 <h1 className="text-2xl font-semibold">REGISTRATION</h1>
                 <hr className="border-t-2 border-primary w-[15rem]"></hr>
               </div>
 
               <Formik
-                initialValues={{ name: '', email: '', password: '' }}
-                validate={values => {
+                initialValues={{ name: "", email: "", password: "" }}
+                validate={(values) => {
                   const errors = {};
                   if (!values.email) {
-                    errors.email = 'Required';
+                    errors.email = "Required";
                   } else if (
-                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+                      values.email
+                    )
                   ) {
-                    errors.email = 'Invalid email address';
+                    errors.email = "Invalid email address";
                   }
                   return errors;
                 }}
@@ -86,10 +82,12 @@ const Page = () => {
               >
                 {({ isSubmitting }) => (
                   <Form className="flex flex-col justify-center items-center">
-
                     {/* Name */}
                     <div className="mb-4">
-                      <label className="block text-primary mb-1 text-sm" htmlFor="name">
+                      <label
+                        className="block text-primary mb-1 text-sm"
+                        htmlFor="name"
+                      >
                         Name
                       </label>
                       <Field
@@ -98,12 +96,19 @@ const Page = () => {
                         name="name"
                         type="text"
                       />
-                      <ErrorMessage className="block text-[10px] mb-2 tracking-wider text-primary mt-2" name="name" component="div" />
+                      <ErrorMessage
+                        name="name"
+                        component="div"
+                        className="text-[10px] text-red-500 mt-2"
+                      />
                     </div>
 
                     {/* Email */}
                     <div className="mb-4">
-                      <label className="block text-primary mb-1 text-sm" htmlFor="email">
+                      <label
+                        className="block text-primary mb-1 text-sm"
+                        htmlFor="email"
+                      >
                         Email
                       </label>
                       <Field
@@ -112,12 +117,19 @@ const Page = () => {
                         name="email"
                         type="email"
                       />
-                      <ErrorMessage className="block text-[10px] mb-2 tracking-wider text-primary mt-2" name="email" component="div" />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className="text-[10px] text-red-500 mt-2"
+                      />
                     </div>
 
                     {/* Password */}
                     <div className="mb-8">
-                      <label className="block text-primary mb-1 text-sm" htmlFor="password">
+                      <label
+                        className="block text-primary mb-1 text-sm"
+                        htmlFor="password"
+                      >
                         Password
                       </label>
                       <Field
@@ -125,25 +137,34 @@ const Page = () => {
                         id="password"
                         name="password"
                         type="password"
-                        placeholder=""
                       />
-                      <ErrorMessage className="block text-[10px] mb-2 tracking-wider text-primary mt-2" name="password" component="div" />
+                      <ErrorMessage
+                        name="password"
+                        component="div"
+                        className="text-[10px] text-red-500 mt-2"
+                      />
                     </div>
 
                     {/* Submit Button */}
                     <div className="flex items-center justify-center">
                       <button
-                        className="h-10 w-[8rem] bg-primary text-secondary py-2 font-bold focus:outline-none focus:shadow-outline"
+                        className="h-10 w-[8rem] bg-primary text-secondary py-2 font-bold focus:outline-none focus:shadow-outline disabled:opacity-50"
                         type="submit"
                         disabled={isSubmitting}
                       >
-                        Sign Up
+                        {isSubmitting ? "Signing Up..." : "Sign Up"}
                       </button>
                     </div>
                   </Form>
                 )}
               </Formik>
-              <p className="text-center text-primary mt-4 text-sm tracking-wider">Already have an account? <a className="" href="/">SIGN IN</a></p>
+
+              <p className="text-center text-primary mt-4 text-sm tracking-wider">
+                Already have an account?{" "}
+                <a className="underline" href="/">
+                  SIGN IN
+                </a>
+              </p>
             </div>
 
             {/* Title */}

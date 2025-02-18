@@ -1,6 +1,5 @@
 'use server'
 
-
 import PostModel from "../models/postmodel"
 import connectDB from "../config/database"
 
