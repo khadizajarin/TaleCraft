@@ -60,7 +60,7 @@ const Navbar = () => {
                 width={40}
                 height={40}
                 alt="User Profile"
-                src={userData?.profilePicture || ""}
+                src={userData?.profilePicture || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVTbKKhH9dSn7E0cXM-WUHRCAgDbHsMUfpeQ&s"}
                 onError={(e) => (e.target.style.display = "none")} // Hide broken images
                 className={`w-10 h-10 rounded-full border-secondary border-2 ${
                   !userData?.profilePicture ? "hidden" : ""

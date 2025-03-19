@@ -20,7 +20,7 @@ const Page = () => {
 
     const fetchPosts = async () => {
       try {
-        const res = await fetch('/api/posts');
+        const res = await fetch('posts');
         const data = await res.json();
         if (res.ok) {
           setPosts(data);
