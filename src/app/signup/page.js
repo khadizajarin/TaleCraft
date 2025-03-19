@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../lib/AuthProvider";
+import API from "../../../utils/api";
 
 const almarai = Almarai({
   subsets: ["arabic"],
@@ -20,7 +21,12 @@ const Page = () => {
   const handleSignup = async (values, { setSubmitting }) => {
     console.log("Form values:", values.email, values.password);
 
-    createUser(values.email, values.password)
+    const { data } = await API.post("/users", {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    });
+    await createUser(values.email, values.password)
       .then(() => {
         router.push("/homepage");
         Swal.fire({
@@ -91,7 +97,7 @@ const Page = () => {
                         Name
                       </label>
                       <Field
-                        className="w-[23rem] h-10 px-3 bg-primary bg-opacity-20 text-primary"
+                        className="w-[23rem] h-10 px-3 bg-primary bg-opacity-20 text-primary outline-none focus:ring-0 focus:border-transparent"
                         id="name"
                         name="name"
                         type="text"
@@ -112,7 +118,7 @@ const Page = () => {
                         Email
                       </label>
                       <Field
-                        className="w-[23rem] h-10 px-3 bg-primary bg-opacity-20 text-primary"
+                        className="w-[23rem] h-10 px-3 bg-primary bg-opacity-20 text-primary outline-none focus:ring-0 focus:border-transparent"
                         id="email"
                         name="email"
                         type="email"
@@ -133,7 +139,7 @@ const Page = () => {
                         Password
                       </label>
                       <Field
-                        className="w-[23rem] h-10 px-3 bg-primary bg-opacity-20 text-primary"
+                        className="w-[23rem] h-10 px-3 bg-primary bg-opacity-20 text-primary outline-none focus:ring-0 focus:border-transparent"
                         id="password"
                         name="password"
                         type="password"

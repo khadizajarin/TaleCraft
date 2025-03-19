@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from 'next/navigation'
 import { AuthContext } from "../lib/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 // import { getPosts } from "../../_actions/postAction";
 
@@ -23,6 +24,11 @@ export default function Home() {
   const { signIn } = useContext(AuthContext); 
   const router = useRouter(); // Initialize router
   const [isClient, setIsClient] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   useEffect(() => {
     setIsClient(true); // Ensures component runs only in client-side
@@ -36,6 +42,7 @@ export default function Home() {
 
     signIn(values.email, values.password)
     .then(result => {
+      document.activeElement.blur(); // Remove focus from the active input
       router.push( "/homepage");
       Swal.fire({
         title: 'Good!',
@@ -109,7 +116,7 @@ export default function Home() {
                         Email
                       </label>
                       <Field
-                        className="w-[23rem] h-10 px-3 bg-primary bg-opacity-20 text-primary"
+                        className="w-[23rem] h-10 px-3 bg-primary bg-opacity-20 text-primary outline-none focus:ring-0 focus:border-transparent"
                         id="email"
                         name="email"
                         type="email"
@@ -118,19 +125,28 @@ export default function Home() {
                     </div>
 
                     {/* password */}
-                    <div className="mb-4">
+                    <div className="mb-4 relative">
                       <label className="block text-primary mb-1 text-sm" htmlFor="password">
                         Password
                       </label>
-                      <Field
-                        className="w-[23rem] h-10 px-3 bg-primary bg-opacity-20 text-primary"
-                        id="password"
-                        name="password"
-                        type="password"
-                        placeholder=""
-                      />
+                      <div className="relative">
+                        <Field
+                          className="w-[23rem] h-10 px-3 pr-10 bg-primary bg-opacity-20 text-primary outline-none focus:ring-0 focus:border-transparent"
+                          id="password"
+                          name="password"
+                          type={showPassword ? "text" : "password"}
+                          placeholder=""
+                        />
+                        <span
+                          className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-primary"
+                          onClick={togglePasswordVisibility}
+                        >
+                          {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
+                      </div>
                       <ErrorMessage className="block text-[10px] mb-2 tracking-wider text-primary mt-2" name="password" component="div" />
                     </div>
+
 
                     {/* check box */}
                     <div className="flex justify-start items-center mb-8">
