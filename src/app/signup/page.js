@@ -1,5 +1,4 @@
 "use client";
-
 import background from "@/assets/image.png";
 import { Almarai } from "next/font/google";
 import { Formik, Form, Field, ErrorMessage } from "formik";

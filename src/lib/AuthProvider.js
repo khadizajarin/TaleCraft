@@ -2,6 +2,7 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import {auth} from "./firebase.config"
 import { createContext, useEffect, useState } from "react";
+import API from "../../utils/api";
 
 
 
@@ -41,15 +42,29 @@ const AuthProvider = ({children}) => {
     }
 
     //observer
-    useEffect( () => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+            if (currentUser) {
+                try {
+                    // ✅ Fetch user data from MongoDB using Axios
+                    const { data: userData } = await API.get(`/users?email=${currentUser.email}`);
+    
+                    // ✅ Merge MongoDB user data with Firebase user object
+                    setUser({ ...currentUser, displayName: userData.name });
+                } catch (error) {
+                    console.error("Error fetching user data from MongoDB:", error);
+                    setUser(currentUser); // Fallback to Firebase user if MongoDB request fails
+                }
+            } else {
+                setUser(null);
+            }
             setLoading(false);
-        })
-        return () => {
-            unSubscribe();
-        }
-    }, [])
+        });
+    
+        return () => unSubscribe();
+    }, []);
+    
+    
 
 
 
