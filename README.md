@@ -1,12 +1,11 @@
-
-📖 TaleCraft – AI-Powered Story Writing App
+# 📖 TaleCraft – AI-Powered Story Writing App
 TaleCraft is an AI-powered web application that allows users to generate creative stories based on custom inputs. Leveraging the power of modern frontend technologies and OpenAI, TaleCraft delivers a seamless, dynamic, and interactive user experience for aspiring writers, storytellers, and hobbyists.
 
 🚀 Live Demo
 🌐 View the Live App
 🔗 Frontend GitHub Repo
 
-🛠 Tech Stack
+# 🛠 Tech Stack
 Framework: React.js, Vite
 
 Styling: Tailwind CSS
@@ -19,7 +18,7 @@ Form Handling: React Hook Form
 
 Deployment: Netlify
 
-✨ Features
+# ✨ Features
 🎨 Clean and responsive UI built with Tailwind CSS
 
 ✍️ Input fields to define characters, settings, genres, and tones
