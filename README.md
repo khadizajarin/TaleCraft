@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+📖 TaleCraft – AI-Powered Story Writing App
+TaleCraft is an AI-powered web application that allows users to generate creative stories based on custom inputs. Leveraging the power of modern frontend technologies and OpenAI, TaleCraft delivers a seamless, dynamic, and interactive user experience for aspiring writers, storytellers, and hobbyists.
 
-First, run the development server:
+🚀 Live Demo
+🌐 View the Live App
+🔗 Frontend GitHub Repo
 
-```bash
+🛠 Tech Stack
+Framework: React.js, Vite
+
+Styling: Tailwind CSS
+
+State Management: React Hooks
+
+API Integration: OpenAI API (GPT model)
+
+Form Handling: React Hook Form
+
+Deployment: Netlify
+
+✨ Features
+🎨 Clean and responsive UI built with Tailwind CSS
+
+✍️ Input fields to define characters, settings, genres, and tones
+
+🤖 Integration with OpenAI to dynamically generate story content
+
+📄 Display area for the AI-generated tale
+
+🔁 Option to regenerate or reset the story
+
+📱 Fully responsive – works across devices
+
+🎯 Optimized for performance using Vite
+
+📷 Screenshots
+Home Page	Story Generated
+
+(Replace the above placeholders with real screenshots hosted on Imgur or GitHub)
+
+⚙️ How to Run Locally
+bash
+Copy
+Edit
+# Clone the repository
+git clone https://github.com/khadizajarin/TaleCraft.git
+
+# Navigate to the project directory
+cd TaleCraft
+
+# Install dependencies
+npm install
+
+# Create a .env file and add your OpenAI API key
+VITE_OPENAI_API_KEY=your_api_key_here
+
+# Run the app
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+📁 Folder Structure
+bash
+Copy
+Edit
+TaleCraft/
+│
+├── public/           # Static assets
+├── src/
+│   ├── components/   # Reusable UI components
+│   ├── pages/        # Main views/pages
+│   ├── api/          # API configuration
+│   └── App.jsx       # Root component
+│
+├── .env              # Environment variables
+├── index.html        # Entry HTML file
+└── vite.config.js    # Vite config
+🤝 Contributing
+Contributions are welcome! Please fork the repo and submit a pull request. For major changes, open an issue first to discuss what you’d like to change.
 
-Open []() with your browser to see the result.
+📄 License
+This project is licensed under the MIT License.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+🙋‍♀️ About Me
+Hi! I’m Khadiza Jarin Roza – a frontend developer passionate about creating interactive web apps using React, Next.js, and Tailwind CSS.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+🔗 Portfolio
+🐙 GitHub
+📧 khadiza131310@gmail.com
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
