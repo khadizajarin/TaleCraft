@@ -2,7 +2,9 @@
 TaleCraft is an AI-powered web application that allows users to generate creative stories based on custom inputs. Leveraging the power of modern frontend technologies and OpenAI, TaleCraft delivers a seamless, dynamic, and interactive user experience for aspiring writers, storytellers, and hobbyists.
 
 🚀 Live Demo
+
 🌐 View the Live App
+
 🔗 Frontend GitHub Repo
 
 # 🛠 Tech Stack
@@ -39,9 +41,8 @@ Home Page	Story Generated
 (Replace the above placeholders with real screenshots hosted on Imgur or GitHub)
 
 ⚙️ How to Run Locally
-bash
-Copy
-Edit
+``
+
 # Clone the repository
 git clone https://github.com/khadizajarin/TaleCraft.git
 
@@ -56,10 +57,9 @@ VITE_OPENAI_API_KEY=your_api_key_here
 
 # Run the app
 npm run dev
-📁 Folder Structure
-bash
-Copy
-Edit
+``
+# 📁 Folder Structure
+``
 TaleCraft/
 │
 ├── public/           # Static assets
@@ -72,16 +72,17 @@ TaleCraft/
 ├── .env              # Environment variables
 ├── index.html        # Entry HTML file
 └── vite.config.js    # Vite config
-🤝 Contributing
+``
+# 🤝 Contributing
 Contributions are welcome! Please fork the repo and submit a pull request. For major changes, open an issue first to discuss what you’d like to change.
 
-📄 License
+# 📄 License
 This project is licensed under the MIT License.
 
-🙋‍♀️ About Me
+# 🙋‍♀️ About Me
 Hi! I’m Khadiza Jarin Roza – a frontend developer passionate about creating interactive web apps using React, Next.js, and Tailwind CSS.
 
-🔗 Portfolio
-🐙 GitHub
+🔗 Portfolio [https://khadizajarinroza.netlify.app/]
+🐙 GitHub [https://github.com/khadizajarin]
 📧 khadiza131310@gmail.com
 
