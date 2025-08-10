@@ -25,3 +25,12 @@ body {
     text-wrap: balance;
   }
 }
+
+
+* {
+  outline: none !important;
+}
+*:focus-visible {
+  outline: none !important;
+}
+

@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../lib/AuthProvider";
+import { AuthContext } from "@/lib/AuthProvider";
 import API from "../../../utils/api";
 
 // ✅ Navbar Component
