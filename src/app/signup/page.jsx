@@ -153,7 +153,7 @@ const Page = () => {
                     {/* Submit Button */}
                     <div className="flex items-center justify-center">
                       <button
-                        className="h-10 w-[8rem] bg-primary text-secondary py-2 font-bold focus:outline-none focus:shadow-outline disabled:opacity-50"
+                        className="h-10 w-[8rem] bg-primary text-secondary py-2 font-bold focus:outline-none focus:shadow-[1px_1px_5px_0_rgba(0,0,0,0.1)] disabled:opacity-50"
                         type="submit"
                         disabled={isSubmitting}
                       >

@@ -39,7 +39,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-secondary bg-opacity-30">
+    <div className="navbar bg-secondary rounded-lg bg-opacity-30">
       <div className="flex-1">
         <a className="btn btn-ghost text-xl text-secondary">TaleCraft</a>
       </div>
@@ -70,7 +70,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-[1px_1px_5px_0_rgba(0,0,0,0.1)]"
           >
             <li>
               <a className="justify-between">

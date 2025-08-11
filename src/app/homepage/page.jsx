@@ -93,15 +93,15 @@ const Page = ( {children}) => {
         <div className="relative z-20 max-w-[84rem] mx-auto">
           <Navbar className="fixed top-0 left-0 w-full bg-opacity-80 z-50" />
 
-          <div className="flex gap-6 mt-1"> {/* Two-column layout */}
+          <div className="flex gap-1 mt-1"> {/* Two-column layout */}
             
             {/* Left Sidebar - Dashboard */}
-            <div className="w-1/3 bg-white rounded-lg shadow-lg p-4 h-[calc(100vh-5rem)] overflow-y-auto">
+            <div className="w-1/3 bg-secondary bg-opacity-30 rounded-lg shadow-[1px_1px_5px_0_rgba(0,0,0,0.1)] p-4 h-[calc(100vh-5rem)] overflow-y-auto">
               <Dashboard></Dashboard>            
             </div>
 
             {/* Right Content - Post editor + feed */}
-            <div className="w-2/3 rounded-lg shadow-lg h-[calc(100vh-5rem)] overflow-y-auto">
+            <div className="w-2/3 h-[calc(100vh-5rem)] overflow-y-auto">
                 {hasChildren ? children : <Content />}
               </div>
             </div>

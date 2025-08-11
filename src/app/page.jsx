@@ -9,8 +9,6 @@ import { useRouter } from 'next/navigation'
 import { AuthContext } from "../lib/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-// import { getPosts } from "../../_actions/postAction";
-
 
 // Initialize the font
 const almarai = Almarai({
@@ -22,7 +20,7 @@ export default function Home() {
 
 
   const { signIn } = useContext(AuthContext); 
-  const router = useRouter(); // Initialize router
+  const router = useRouter(); 
   const [isClient, setIsClient] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -42,7 +40,7 @@ export default function Home() {
 
     signIn(values.email, values.password)
     .then(result => {
-      document.activeElement.blur(); // Remove focus from the active input
+      // document.activeElement.blur(); // Remove focus from the active input
       router.push( "/homepage");
       Swal.fire({
         title: 'Good!',
@@ -157,7 +155,7 @@ export default function Home() {
                     {/* submit button */}
                     <div className="flex items-center justify-center">
                       <button
-                        className="h-10 w-[8rem] bg-primary text-secondary py-2 font-bold focus:outline-none focus:shadow-outline"
+                        className="h-10 w-[8rem] bg-primary text-secondary py-2 font-bold focus:outline-none focus:shadow-[1px_1px_5px_0_rgba(0,0,0,0.1)]"
                         type="submit" disabled={isSubmitting}
                       >
                         Sign In

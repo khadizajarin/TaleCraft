@@ -73,7 +73,7 @@ const Content = () => {
     return (
 
         <div>
-            <div className="bg-transparent p-4 flex shadow-sm mb-8">
+            <div className="bg-secondary  bg-opacity-30 rounded-lg p-4 flex shadow-[1px_1px_5px_0_rgba(0,0,0,0.1)] mb-1">
                 <TiptapEditor onChange={setPostText} />
                 <div className="mt-2">
                   <input 
@@ -88,8 +88,8 @@ const Content = () => {
                 <button
                   className="
                     ml-2 px-6 py-2
-                    bg-yellow-600 text-white font-semibold
-                    rounded-lg shadow-md
+                    bg-secondary text-white font-semibold
+                    rounded-lg shadow-[1px_1px_5px_0_rgba(0,0,0,0.1)]
                     hover:bg-yellow-700
                     focus:outline-none focus:ring-4 focus:ring-yellow-300
                     transform hover:scale-105 transition
@@ -101,14 +101,14 @@ const Content = () => {
               </div>
 
             
-            <div className="overflow-y-auto h-[calc(100vh-18rem)]">
+            <div className="bg-secondary bg-opacity-30 rounded-lg overflow-y-auto p-4">
                         {loading ? (
                           <p className="text-gray-600">Loading posts...</p>
                         ) : posts.length > 0 ? (
                           posts.map((post) => (
-                            <div key={post._id} className="bg-glass p-4 rounded-lg shadow-md mb-4">
+                            <div key={post._id} className=" p-4 rounded-lg shadow-[1px_1px_5px_0_rgba(0,0,0,0.1)]">
                               <h2
-                                className="text-lg font-bold"
+                                className="text-lg font-medium"
                                 dangerouslySetInnerHTML={{ __html: post.postContent }}
                               ></h2>
                               <p className="text-sm text-gray-500">
