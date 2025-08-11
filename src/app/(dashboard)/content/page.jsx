@@ -12,8 +12,8 @@ const Content = () => {
     const [postText, setPostText] = useState("");
     const [images, setImages] = useState([]); // ✅ Store selected images
     const { user } = useContext(AuthContext); // ✅ Get user from context
-
     const [bgImage, setBgImage] = useState("");
+    const [resetKey, setResetKey] = useState(0);
 
 
     const fetchPosts = async () => {
@@ -62,6 +62,8 @@ const Content = () => {
         setPosts([savedPost.post, ...posts]);
         setPostText(""); 
         setImages([]); // ✅ Clear images after posting
+        setResetKey(prev => prev + 1);
+        
         } catch (error) {
         console.error("Error posting:", error);
         }
@@ -74,7 +76,7 @@ const Content = () => {
 
         <div>
             <div className="bg-secondary  bg-opacity-30 rounded-lg p-4 flex shadow-[1px_1px_5px_0_rgba(0,0,0,0.1)] mb-1">
-                <TiptapEditor onChange={setPostText} />
+                <TiptapEditor key={resetKey}   onChange={setPostText} />
                 <div className="mt-2">
                   <input 
                     type="file" 

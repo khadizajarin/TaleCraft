@@ -25,6 +25,14 @@ body {
     text-wrap: balance;
   }
 }
+/* .mark {
+  background-color: #b99f88;
+  color: inherit;
+} */
+.ProseMirror .highlight {
+  background-color: #b99f88 !important;
+  color: black; /* or any text color you want */
+}
 
 
 * {
