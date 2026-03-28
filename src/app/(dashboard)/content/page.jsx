@@ -10,8 +10,8 @@ const Content = () => {
     const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
     const [postText, setPostText] = useState("");
-    const [images, setImages] = useState([]); // ✅ Store selected images
-    const { user } = useContext(AuthContext); // ✅ Get user from context
+    const [images, setImages] = useState([]); 
+    const { user } = useContext(AuthContext); 
     const [bgImage, setBgImage] = useState("");
     const [resetKey, setResetKey] = useState(0);
 

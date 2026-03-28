@@ -61,7 +61,7 @@ const Navbar = () => {
                 height={40}
                 alt="User Profile"
                 src={userData?.profilePicture || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVTbKKhH9dSn7E0cXM-WUHRCAgDbHsMUfpeQ&s"}
-                onError={(e) => (e.target.style.display = "none")} // Hide broken images
+                onError={(e) => (e.target.style.display = "none")} 
                 className={`w-10 h-10 rounded-full border-secondary border-2 ${
                   !userData?.profilePicture ? "hidden" : ""
                 }`}
@@ -74,7 +74,7 @@ const Navbar = () => {
           >
             <li>
               <a className="justify-between">
-                {userData?.name || "User"} {/*  Show user name */}
+                {userData?.name || "User"} 
                 <span className="badge">New</span>
               </a>
             </li>
